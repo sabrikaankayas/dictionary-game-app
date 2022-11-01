@@ -45,6 +45,13 @@
     top: 40%;
     width: 100%;
 }
+.question__container .green {
+    position: absolute;
+    font-size: 1.3rem;
+    color: #174d23;
+    top: 40%;
+    width: 100%; 
+}
 .question__submit {
     position: relative;
     width: 100%;

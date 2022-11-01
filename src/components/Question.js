@@ -15,6 +15,7 @@ const Question = () => {
     const [finish, setFinish] = useState(false)
     const [buttonReady, setButtonReady] = useState(true)
     const [next, setNext] = useState(false)
+    const [correct, setCorrect] = useState(false)
 
     const randomWord = async () => {
         setButtonReady(true)
@@ -72,16 +73,18 @@ const Question = () => {
         setButtonReady(false)
         setNext (false)
         setAnswer("")
+        setCorrect(false)
     }
 
     const playerAnswer = () => {
         if (def) {
-            if (answer !== "" && answer !== "a" && answer !== "an" && answer !== "as" && answer !== "to" && answer !== "or") {
+            if (answer.toLowerCase() !== "" && answer.toLowerCase() !== "a" && answer.toLowerCase() !== "an" && answer.toLowerCase() !== "as" && answer.toLowerCase() !== "to" && answer.toLowerCase() !== "or") {
             let words = def.split(" ")
             for (let i = 0; i < words.length; i++) {
                 if (answer.replace(/\s+/g, '').toLowerCase() === words[i].toLowerCase()) {
                     setScore(score + 1)
-                    return randomWord()
+                    setCorrect(true)
+                    setNext(true)
                 } 
             }
 
@@ -89,7 +92,7 @@ const Question = () => {
         } else if (answer === "") {
 
             setNext(true)
-        } else if (answer.replace(/\s+/g, '') === "a" || "or" || "an" || "as" || "to" || "or") {
+        } else if (answer.replace(/\s+/g, '').toLowerCase() === "a" || "or" || "an" || "as" || "to" || "or") {
             setWarning(true)
         }
         }
@@ -124,7 +127,7 @@ const Question = () => {
         </div>
         <div className='question__container'>
             <h1>{corQuestion}</h1>
-            {next && <h4>{def}</h4>}  
+            {next && <h4 className={`${correct ? "green" : ""}`}>{def}</h4>}  
             <div className='question__submit'>
             <div className='question__submit2'>
             <input placeholder='Enter a word' type="text" onChange={(e) => {setAnswer(e.target.value)}} value={answer} disabled={next}/>
