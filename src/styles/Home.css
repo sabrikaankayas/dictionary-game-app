@@ -1,0 +1,43 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #EAE3D2;
+    position: relative;
+}
+.home__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 60vh;
+    background-color: #607EAA;
+    text-align: center;
+    padding: 2rem;
+}
+.home h1 {
+    position: absolute;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    color: #1a1111da;
+    top: 8%;
+}
+.home__container h3 {
+    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    color: #ffffffc7;
+    line-height: 2;
+}
+.home__btn{
+    font-size: 3rem;
+    padding: 0.7rem 5rem;
+    background-color: rgba(88, 25, 25, 0.795);
+    color: #ffffffda;
+    border: none;
+    cursor: pointer;
+    border-radius: 3rem;
+}

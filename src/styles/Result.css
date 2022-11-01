@@ -1,0 +1,28 @@
+.question .thanks {
+    position: absolute;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    color: #1a1111da;
+    top: 8%;
+    width: 100%;
+    text-align: center;
+}
+
+.question__submit .result__score {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.712);
+    margin-bottom: 3rem;
+}
+.result__btn {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    padding: 0.7rem 3rem;
+    background-color: rgb(80, 23, 23);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3rem;
+}
