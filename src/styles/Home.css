@@ -28,9 +28,12 @@
 }
 .home__container h3 {
     margin-bottom: 3rem;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: #ffffffc7;
     line-height: 2;
+}
+.home__container h3 span {
+    text-decoration: underline;
 }
 .home__btn{
     font-size: 3rem;

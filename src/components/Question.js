@@ -25,7 +25,6 @@ const Question = () => {
         try {
             const res = await fetch("https://random-word-api.herokuapp.com/word")
             const data = await res.json()
-            console.log(`random word: ${data[0]}`)
             setRandomWord(data[0])
             setWarning(false)
             setRound(round + 1)
@@ -40,9 +39,9 @@ const Question = () => {
         try {
             const res = await fetch(`https://www.dictionaryapi.com/api/v3/references/sd3/json/${randomword}?key=${key}`)
             const data = await res.json()
-            console.log(data)
             if (typeof data[0] !== "string") {
                 setQuestion(data[0].meta.id)
+                console.log(data[0].shortdef)
                 let sentence = ""
                 for (let i=0; i < data[0].shortdef.length; i++ ) {
                     sentence += `${i+1} - ${data[0].shortdef[i]} ` 
@@ -78,7 +77,7 @@ const Question = () => {
 
     const playerAnswer = () => {
         if (def) {
-            if (answer.toLowerCase() !== "" && answer.toLowerCase() !== "a" && answer.toLowerCase() !== "an" && answer.toLowerCase() !== "as" && answer.toLowerCase() !== "to" && answer.toLowerCase() !== "or") {
+            if (answer.toLowerCase() !== "" && answer.toLowerCase() !== "a" && answer.toLowerCase() !== "an" && answer.toLowerCase() !== "as" && answer.toLowerCase() !== "to" && answer.toLowerCase() !== "or" && answer.toLowerCase() !== "the") {
             let words = def.split(" ")
             for (let i = 0; i < words.length; i++) {
                 if (answer.replace(/\s+/g, '').toLowerCase() === words[i].toLowerCase()) {
@@ -92,7 +91,7 @@ const Question = () => {
         } else if (answer === "") {
 
             setNext(true)
-        } else if (answer.replace(/\s+/g, '').toLowerCase() === "a" || "or" || "an" || "as" || "to" || "or") {
+        } else if (answer.replace(/\s+/g, '').toLowerCase() === "a" || "or" || "an" || "as" || "to" || "or" || "the") {
             setWarning(true)
         }
         }
@@ -136,7 +135,7 @@ const Question = () => {
             {finish && <Link to={"/result"} className='question__btn' state={{ score: score, def: def, corQuestion: corQuestion}}>End</Link>}
             </div>
             </div>
-            {warning  && <h5>"a, an, or, as, to"cannot be use.</h5>}
+            {warning  && <h5>"a, an, or, as, to, the"cannot be used.</h5>}
         </div>
     </div>
   )
