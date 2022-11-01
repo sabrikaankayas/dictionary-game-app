@@ -135,7 +135,7 @@ const Question = () => {
             {finish && <Link to={"/result"} className='question__btn' state={{ score: score, def: def, corQuestion: corQuestion}}>End</Link>}
             </div>
             </div>
-            {warning  && <h5>"a, an, or, as, to, the"cannot be used.</h5>}
+            {warning  && <h5>"a, an, or, as, to, the" cannot be used.</h5>}
         </div>
     </div>
   )
